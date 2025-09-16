@@ -67,7 +67,7 @@ typedef struct	s_map
 	char	*w_txtr;//	Path to West wall texture
 	int		fcol;//		Floor color
 	int		ccol;//		Ceiling color
-	char	**map;
+	char	**grid;
 	size_t	map_h;//	Map hight
 	size_t	map_l;//	Map width (longest line)
 	int		p_dir;//	Players starting facing directionn.
@@ -91,6 +91,7 @@ bool	copy_map(t_map *txtr, char *str, int fd);
 bool	valid_map(t_map *txtr, char **map);
 bool	check_map_struct(t_map *txtr);
 
+/*____________________________________free_mem________________________________*/
 void	free_mapstruct(t_map *txtr);
 
 #endif

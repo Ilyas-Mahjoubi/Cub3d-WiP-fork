@@ -3,11 +3,11 @@
 // @txtr = map textures structure
 int main(int ac, char **av)
 {
-	t_map	txtr;
+	t_map	map;
 
 	if (ac < 2)
 		return (1);
-	if (parse_map_file(av[1], &txtr) == 0)
+	if (parse_map_file(av[1], &map) == 0)
 		return (1);
-	free_mapstruct(&txtr);
+	free_mapstruct(&map);
 }

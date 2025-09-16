@@ -10,6 +10,6 @@ void	free_mapstruct(t_map *txtr)
 		free(txtr->e_txtr);
 	if (txtr->w_txtr)
 		free(txtr->w_txtr);
-	if (txtr->map)
-		free_dpc(txtr->map);
+	if (txtr->grid)
+		free_dpc(txtr->grid);
 }
