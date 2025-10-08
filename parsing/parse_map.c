@@ -13,7 +13,6 @@ bool	copy_map(t_map *map, char *str, int fd)
 		map->grid = ft_realloc(map->grid, (map->map_h) * sizeof(char *), \
 										(map->map_h + 1) * sizeof(char *));
 		map->grid[map->map_h] = ft_strdup(str);
-		ft_printf(BRCYAN"%s"NO_ALL, map->grid[map->map_h]);////////////////////////////////
 		len = ft_strlen(map->grid[map->map_h]);
 		if (len > map->map_l)
 			map->map_l = len;
@@ -26,7 +25,7 @@ bool	copy_map(t_map *map, char *str, int fd)
 	return (1);
 }
 
-static bool	is_player(int c)
+static int	is_player(int c)
 {
 	if (c == 'N')
 		return (1);
@@ -39,12 +38,9 @@ static bool	is_player(int c)
 	return (0);
 }
 
-// i = line
-// j = column
 static bool	valid_surroundings(t_map *map, char **grid, size_t i, size_t j)
 {
-	if (is_player(grid[i][j]))
-		map->n_players++;
+	map->n_players += is_player(grid[i][j]);
 	if (j < 1 || grid[i][j - 1] == '\n' || grid[i][j - 1] == ' ')
 		return ((ft_printfd(2, RED"Error\nInvalid map\n"NO_ALL), 0));
 	else if (!grid[i][j + 1] || grid[i][j + 1] == '\n' || grid[i][j + 1] == ' ')

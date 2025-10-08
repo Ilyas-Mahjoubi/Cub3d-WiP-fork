@@ -5,13 +5,15 @@ int	rgb_to_int(int r, int g, int b)
 {
 	int	color;
 
+	if ((r < 0 || r > 255) || (g < 0 || g > 255) || (b < 0 || b > 255))
+		return (ft_printfd(2, RED"Error\nInvalid rgb color\n"NO_ALL), -1);
 	color = r;
 	color = (color << 8) | g;
 	color = (color << 8) | b;
 	return (color);
 }
 
-// Parsing of the rgb color code.
+// Parsing of the rgb color code string.
 static bool	check_rgb_nums(char **split_num)
 {
 	int	i;

@@ -30,7 +30,6 @@ SRC = chars/ft_isalpha.c chars/ft_isdigit.c \
 		get_next_line.c\
 		ft_strmapi.c ft_striteri.c\
 
-
 OBJECTS = ${SRC:.c=.o}
 
 all: $(NAME)
